@@ -1,14 +1,5 @@
 # I don't know the real minimum version. I only have 3.22 installed and it works with that
 cmake_minimum_required(VERSION 3.22)
-
-set(
-    CMAKE_C_STANDARD 90
-)
-
-set(
-    CMAKE_C_STANDARD_REQUIRED TRUE
-)
-
 project(
     libfec
     DESCRIPTION "A FEC library."
@@ -18,19 +9,18 @@ project(
 
 add_library(libfec_libfec STATIC)
 add_library(libfec::libfec ALIAS libfec_libfec)
-
-target_sources(libfec_libfec PRIVATE encode_rs_8.c decode_rs_8.c encode_rs_ccsds.c decode_rs_ccsds.c)
-set_target_properties(libfec_libfec PROPERTIES OUTPUT_NAME libfec EXPORT_NAME libfec)
+set_target_properties(libfec_libfec PROPERTIES OUTPUT_NAME fec EXPORT_NAME libfec)
+add_subdirectory(libfec)
 
 
 # Install with CMake:
-# cmake [--toolchain <toolchain file>] [-DLFS_THREADSAFE] [other options] -S . -B build
+# cmake [--toolchain <toolchain file>] [other options] -S . -B build
 # cmake --build build
 # sudo cmake --install build [--prefix <prefix of install directory>]
 
 # Use in other project with CMake:
-# find_package(littlefs [<version>] REQUIRED)
-# target_link_libraries(<target> (PUBLIC|INTERFACE|PRIVATE) littlefs::littlefs)
+# find_package(libfec [<version>] REQUIRED)
+# target_link_libraries(<target> (PUBLIC|INTERFACE|PRIVATE) libfec::libfec)
 
 # Install rules
 
@@ -41,11 +31,9 @@ set(package libfec)
 set(libfec_INSTALL_CMAKEDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${package})
 
 install(FILES
-    ${CMAKE_SOURCE_DIR}/ccsds.h
-    ${CMAKE_SOURCE_DIR}/fec.h
-    ${CMAKE_SOURCE_DIR}/fixed.h
+    ${CMAKE_SOURCE_DIR}/libfec/fec.h
+    ${CMAKE_SOURCE_DIR}/libfec/fixed.h
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${package})
-# install(FILES lfs.h lfs_util.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${package})
 target_include_directories(
     libfec_libfec SYSTEM INTERFACE $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )

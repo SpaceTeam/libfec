@@ -16,9 +16,9 @@ static inline int mod255(int x){
 }
 #define MODNN(x) mod255(x)
 
-extern data_t CCSDS_alpha_to[];
-extern data_t CCSDS_index_of[];
-extern data_t CCSDS_poly[];
+extern const data_t CCSDS_alpha_to[];
+extern const data_t CCSDS_index_of[];
+extern const data_t CCSDS_poly[];
 
 #define MM 8
 #define NN 255
