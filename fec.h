@@ -168,17 +168,17 @@ void free_rs_int(void *rs);
 /* CCSDS standard (255,223) RS codec with conventional (*not* dual-basis)
  * symbol representation
  */
-void encode_rs_8(unsigned char *data,unsigned char *parity,int pad);
+void encode_rs_8(unsigned char *data, unsigned char *parity);
 int decode_rs_8(unsigned char *data,int *eras_pos,int no_eras,int pad);
 
 /* CCSDS standard (255,223) RS codec with dual-basis symbol representation */
-void encode_rs_ccsds(unsigned char *data,unsigned char *parity,int pad);
-int decode_rs_ccsds(unsigned char *data,int *eras_pos,int no_eras,int pad);
+void encode_rs_ccsds(unsigned char *data, unsigned char *parity);
+int decode_rs_ccsds(unsigned char *data);
 
 /* Tables to map from conventional->dual (Taltab) and
  * dual->conventional (Tal1tab) bases
  */
-extern unsigned char Taltab[],Tal1tab[];
+extern const unsigned char Taltab[],Tal1tab[];
 
 
 /* CPU SIMD instruction set available */
@@ -265,7 +265,7 @@ unsigned long long sumsq_av(signed short *in,int cnt);
 
 int cpu_features(void);
 
-#endif /* _FEC_H_ */
+#endif
 
 
 
