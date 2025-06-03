@@ -10,8 +10,13 @@ project(
 add_library(libfec_libfec STATIC)
 add_library(libfec::libfec ALIAS libfec_libfec)
 set_target_properties(libfec_libfec PROPERTIES OUTPUT_NAME fec EXPORT_NAME libfec)
+target_include_directories(libfec_libfec PUBLIC "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>")
 add_subdirectory(libfec)
 
+include(CTest)
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
 
 # Install with CMake:
 # cmake [--toolchain <toolchain file>] [other options] -S . -B build
