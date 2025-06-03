@@ -1,2 +1,3 @@
 build/
 prefix/
+compile_commands.json
