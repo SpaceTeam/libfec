@@ -19,6 +19,11 @@ void encode_rs_ccsds(data_t *data, data_t *parity)
   encode_rs_8(cdata, parity);
 
   /* Convert parity from conventional to dual basis */
-  for (i = 0; i < NN - NROOTS; i++)
-    parity[i] = Taltab[parity[i]];
+  for (i = 0; i < NN; i++) {
+    if (i < NN - NROOTS) {
+      data[i] = Taltab[cdata[i]];
+    } else {
+      parity[i - NN + NROOTS] = Taltab[parity[i - NN + NROOTS]];
+    }
+  }
 }
