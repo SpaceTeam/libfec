@@ -1,3 +1,4 @@
+#pragma once
 /* User include file for libfec
  * Copyright 2004, Phil Karn, KA9Q
  * May be used under the terms of the GNU Lesser General Public License (LGPL)
@@ -178,7 +179,7 @@ int decode_rs_ccsds(unsigned char *data);
 /* Tables to map from conventional->dual (Taltab) and
  * dual->conventional (Tal1tab) bases
  */
-extern const unsigned char Taltab[],Tal1tab[];
+extern const unsigned char Taltab[256],Tal1tab[256];
 
 
 /* CPU SIMD instruction set available */
