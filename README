@@ -112,3 +112,6 @@ Switch from 4 to 8-bit input symbols on all Viterbi decoders
 Support for Altivec on PowerPC
 Support for k=15 r=1/6 Cassini/Mars Pathfinder/Mars Exploration Rover/STEREO code
 Changed license to GNU Lesser General Public License (LGPL)
+
+Additional copyright holders of this fork/modified version of the library
+Copyright 2025, Tomoya Hagen (tomoya.hagen@spaceteam.at)
