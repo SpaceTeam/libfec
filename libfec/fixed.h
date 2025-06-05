@@ -1,3 +1,8 @@
+/*
+ * Copyright 2002, Phil Karn, KA9Q
+ * Copyright 2025, Tomoya Hagen (tomoya.hagen@spaceteam.at)
+ * May be used under the terms of the GNU Lesser General Public License (LGPL)
+ */
 #pragma once
 /* Stuff specific to the CCSDS (255,223) RS codec
  * (255,223) code over GF(256). Note: the conventional basis is still
@@ -24,12 +29,4 @@ static inline int mod255(int x){
 #define PRIM 11
 #define IPRIM 116
 #define PAD pad
-
-extern const data_t CCSDS_alpha_to[NN + 1];
-extern const data_t CCSDS_index_of[NN + 1];
-extern const data_t CCSDS_poly[NROOTS + 1];
-
-#define ALPHA_TO CCSDS_alpha_to
-#define INDEX_OF CCSDS_index_of
-#define GENPOLY CCSDS_poly
 

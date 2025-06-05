@@ -1,3 +1,8 @@
+/*
+ * Copyright 2002, Phil Karn, KA9Q
+ * Copyright 2025, Tomoya Hagen (tomoya.hagen@spaceteam.at)
+ * May be used under the terms of the GNU Lesser General Public License (LGPL)
+ */
 #pragma once
 /* User include file for libfec
  * Copyright 2004, Phil Karn, KA9Q
@@ -175,11 +180,6 @@ int decode_rs_8(unsigned char *data,int *eras_pos,int no_eras,int pad);
 /* CCSDS standard (255,223) RS codec with dual-basis symbol representation */
 void encode_rs_ccsds(unsigned char *data, unsigned char *parity);
 int decode_rs_ccsds(unsigned char *data);
-
-/* Tables to map from conventional->dual (Taltab) and
- * dual->conventional (Tal1tab) bases
- */
-extern const unsigned char Taltab[256],Tal1tab[256];
 
 
 /* CPU SIMD instruction set available */
