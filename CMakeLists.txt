@@ -38,6 +38,7 @@ set(libfec_INSTALL_CMAKEDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${package})
 install(FILES
     ${CMAKE_SOURCE_DIR}/libfec/fec.h
     ${CMAKE_SOURCE_DIR}/libfec/fixed.h
+    ${CMAKE_SOURCE_DIR}/libfec/tables.h
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${package})
 target_include_directories(
     libfec_libfec SYSTEM INTERFACE $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
