@@ -1,13 +1,9 @@
-/*
- * Copyright 2002, Phil Karn, KA9Q
+/* Reed-Solomon encoder
+ * Copyright 2004, Phil Karn, KA9Q
  * Copyright 2025, Tomoya Hagen (tomoya.hagen@spaceteam.at)
  * May be used under the terms of the GNU Lesser General Public License (LGPL)
  */
 
-/* Reed-Solomon encoder
- * Copyright 2004, Phil Karn, KA9Q
- * May be used under the terms of the GNU Lesser General Public License (LGPL)
- */
 #include <string.h>
 #include "fixed.h"
 #include "tables.h"

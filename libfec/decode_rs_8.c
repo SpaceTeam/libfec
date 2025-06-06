@@ -1,11 +1,6 @@
 /*
- * Copyright 2002, Phil Karn, KA9Q
+ * Copyright 2004, Phil Karn, KA9Q
  * Copyright 2025, Tomoya Hagen (tomoya.hagen@spaceteam.at)
- * May be used under the terms of the GNU Lesser General Public License (LGPL)
- */
-
- /* General purpose Reed-Solomon decoder for 8-bit symbols or less
- * Copyright 2003 Phil Karn, KA9Q
  * May be used under the terms of the GNU Lesser General Public License (LGPL)
  */
 
