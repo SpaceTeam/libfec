@@ -4,6 +4,9 @@ This package is copyright 2004 by Phil Karn, KA9Q. It may be used
 under the terms of the GNU Lesser General Public License (LGPL). See
 the file "lesser.txt" in this package for license details.
 
+Additional copyright holders of this fork/modified version of the library
+Copyright 2025, Tomoya Hagen (tomoya.hagen@spaceteam.at)
+
 INTRODUCTION
 
 This package provides a set of functions that implement several
@@ -82,6 +85,8 @@ Copyright 2004, Phil Karn, KA9Q
 karn@ka9q.net
 http://people.qualcomm.com/karn
 
+Copyright 2025, Tomoya Hagen (tomoya.hagen@spaceteam.at)
+
 This software may be used under the terms of the GNU Lesser General
 Public License (LGPL); see the file lesser.txt for details.
 
@@ -112,6 +117,3 @@ Switch from 4 to 8-bit input symbols on all Viterbi decoders
 Support for Altivec on PowerPC
 Support for k=15 r=1/6 Cassini/Mars Pathfinder/Mars Exploration Rover/STEREO code
 Changed license to GNU Lesser General Public License (LGPL)
-
-Additional copyright holders of this fork/modified version of the library
-Copyright 2025, Tomoya Hagen (tomoya.hagen@spaceteam.at)
