@@ -11,8 +11,7 @@
 /* This function wraps around the fixed 8-bit decoder, performing the
  * basis transformations necessary to meet the CCSDS standard
  */
-bool decode_rs_ccsds(data_t *data)
-{
+int decode_rs_ccsds(data_t *data) {
   int i, r;
   data_t cdata[NN];
 
@@ -20,10 +19,9 @@ bool decode_rs_ccsds(data_t *data)
   for (i = 0; i < NN; i++)
     cdata[i] = Tal1tab[data[i]];
 
-  bool errorsCorrected = decode_rs_8(cdata, (void *)0, 0, 0);
+  int errorsCorrected = decode_rs_8(cdata, (void *)0, 0, 0);
 
-  if (errorsCorrected)
-  {
+  if (errorsCorrected > 0) {
     /* Convert from conventional to dual basis */
     for (i = 0; i < NN; i++)
       data[i] = Taltab[cdata[i]];

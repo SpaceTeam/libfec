@@ -14,8 +14,8 @@
 #include "fixed.h"
 #include "tables.h"
 
-bool decode_rs_8(data_t *data, int *eras_pos, int no_eras, int pad) {
-  int retval;
+int decode_rs_8(data_t *data, int *eras_pos, int no_eras, int pad) {
+  int i, j, retval;
 
 #if !defined(NULL)
 #define NULL ((void *)0)
@@ -28,7 +28,7 @@ bool decode_rs_8(data_t *data, int *eras_pos, int no_eras, int pad) {
 
   {
     int deg_lambda, el, deg_omega;
-    int i, j, r, k;
+    int r, k;
     data_t u, q, tmp, num1, num2, den, discr_r;
 #ifdef MAX_ARRAY
     data_t lambda[MAX_ARRAY], s[MAX_ARRAY]; /* Err+Eras Locator poly
@@ -266,33 +266,31 @@ bool decode_rs_8(data_t *data, int *eras_pos, int no_eras, int pad) {
     retval = count;
   }
 
-  if (retval < 0) {
-    return false;
-  } else if (retval == 0) {
-    return true;
-  } else {
-    data_t final_s[NROOTS];
-    int i, j;
-    int recalc_syn_error = 0;
+  data_t final_s[NROOTS];
+  int recalc_syn_error = 0;
 
-    /* Recalculate syndromes for the (potentially) corrected data */
-    for (i = 0; i < NROOTS; i++)
-      final_s[i] = data[0];
+  /* Recalculate syndromes for the (potentially) corrected data */
+  for (i = 0; i < NROOTS; i++)
+    final_s[i] = data[0];
 
-    for (j = 1; j < NN; j++) {
-      for (i = 0; i < NROOTS; i++) {
-        if (final_s[i] == 0) {
-          final_s[i] = data[j];
-        } else {
-          final_s[i] = data[j] ^ ALPHA_TO[MODNN(INDEX_OF[final_s[i]] + (FCR + i) * PRIM)];
-        }
+  for (j = 1; j < NN; j++) {
+    for (i = 0; i < NROOTS; i++) {
+      if (final_s[i] == 0) {
+        final_s[i] = data[j];
+      } else {
+        final_s[i] =
+            data[j] ^ ALPHA_TO[MODNN(INDEX_OF[final_s[i]] + (FCR + i) * PRIM)];
       }
     }
+  }
 
-    for (i = 0; i < NROOTS; i++) {
-      recalc_syn_error |= final_s[i];
-    }
+  for (i = 0; i < NROOTS; i++) {
+    recalc_syn_error |= final_s[i];
+  }
 
-    return recalc_syn_error == 0;
+  if (recalc_syn_error == 0) {
+    return retval;
+  } else {
+    return -1;
   }
 }

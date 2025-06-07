@@ -181,11 +181,11 @@ void free_rs_int(void *rs);
  * symbol representation
  */
 void encode_rs_8(unsigned char *data, unsigned char *parity);
-bool decode_rs_8(unsigned char *data,int *eras_pos,int no_eras,int pad);
+int decode_rs_8(unsigned char *data,int *eras_pos,int no_eras,int pad);
 
 /* CCSDS standard (255,223) RS codec with dual-basis symbol representation */
 void encode_rs_ccsds(unsigned char *data, unsigned char *parity);
-bool decode_rs_ccsds(unsigned char *data);
+int decode_rs_ccsds(unsigned char *data);
 
 
 /* CPU SIMD instruction set available */
