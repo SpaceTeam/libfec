@@ -8,6 +8,11 @@
  * (255,223) code over GF(256). Note: the conventional basis is still
  * used; the dual-basis mappings are performed in [en|de]code_rs_ccsds.c
  */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef unsigned char data_t;
 
 static inline int mod255(int x){
@@ -26,4 +31,8 @@ static inline int mod255(int x){
 #define PRIM 11
 #define IPRIM 116
 #define PAD pad
+
+#ifdef __cplusplus
+}
+#endif
 

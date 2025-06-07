@@ -12,6 +12,10 @@
 #ifndef _FEC_H_
 #define _FEC_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* r=1/2 k=7 convolutional encoder polynomials */
 #define	V27POLYA	0x6d
 #define	V27POLYB	0x4f
@@ -265,6 +269,10 @@ unsigned long long sumsq_av(signed short *in,int cnt);
 /* Low-level data structures and routines */
 
 int cpu_features(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 
