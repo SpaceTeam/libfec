@@ -9,6 +9,8 @@
  * May be used under the terms of the GNU Lesser General Public License (LGPL)
  */
 
+#include <stdbool.h>
+
 #ifndef _FEC_H_
 #define _FEC_H_
 
@@ -179,11 +181,11 @@ void free_rs_int(void *rs);
  * symbol representation
  */
 void encode_rs_8(unsigned char *data, unsigned char *parity);
-int decode_rs_8(unsigned char *data,int *eras_pos,int no_eras,int pad);
+bool decode_rs_8(unsigned char *data,int *eras_pos,int no_eras,int pad);
 
 /* CCSDS standard (255,223) RS codec with dual-basis symbol representation */
 void encode_rs_ccsds(unsigned char *data, unsigned char *parity);
-int decode_rs_ccsds(unsigned char *data);
+bool decode_rs_ccsds(unsigned char *data);
 
 
 /* CPU SIMD instruction set available */
