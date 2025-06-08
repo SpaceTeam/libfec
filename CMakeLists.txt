@@ -13,6 +13,7 @@ set_target_properties(libfec_libfec PROPERTIES OUTPUT_NAME fec EXPORT_NAME libfe
 target_include_directories(libfec_libfec PUBLIC "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>")
 add_subdirectory(libfec)
 
+option(BUILD_TESTING "Build tests" OFF)
 include(CTest)
 if(BUILD_TESTING)
     add_subdirectory(tests)
@@ -28,7 +29,6 @@ endif()
 # target_link_libraries(<target> (PUBLIC|INTERFACE|PRIVATE) libfec::libfec)
 
 # Install rules
-
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
